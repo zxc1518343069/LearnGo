@@ -43,6 +43,7 @@ const (
 func main() { // {}表示作用域
 	// 简短声明 只能用在函数内部
 	is := 1
+	//  isTrue := true  逻辑运算 关系运算等 同js  不过 就是没有 ===  是 ==
 	fmt.Println(aa, is, ab)
 
 	// 变量交换 类似py
@@ -50,9 +51,11 @@ func main() { // {}表示作用域
 	fmt.Println(b, c)
 
 	// 打印常量
+	const str = "abcde"
 	fmt.Println("打印常量")
 	fmt.Println(zero, one, two)
 	fmt.Println(bb, cc, gg)
 	fmt.Println("使用占位符(字符填充)打印变量")
-	fmt.Printf("%T %s %d %T", is, ff, c, d) // %T 类型
+	fmt.Println("字符串切片，类似py", len(str))
+	fmt.Printf("%T %s %d %T %s %c", is, ff, c, d, str[0:2], str[0]) // %T 类型
 }
