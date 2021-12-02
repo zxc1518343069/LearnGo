@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println("切片相关知识")
@@ -50,4 +52,26 @@ func main() {
 	fmt.Println(slice5) //[1 2 3 40 50]
 
 	// 删除
+	slice6 := []int{1, 2, 3, 4, 5}
+	slice6 = slice6[1:]
+	fmt.Println("删除第一个", slice6)
+
+	slice6 = []int{1, 2, 3, 4, 5}
+	slice6 = slice6[:len(slice6)-1]
+	fmt.Println("删除最后一个", slice6)
+
+	slice6 = []int{1, 2, 3, 4, 5}
+	fmt.Println("看这个意义不大 其实是把底层内存地址迁移了 然后把3删除了 ", slice6[2:], slice6[3:])
+	copy(slice6[2:], slice6[3:])
+	fmt.Println("删除中间", slice6)                 // [1 2 4 5 5]
+	fmt.Println("删除中间", slice6[:len(slice6)-1]) // [1 2 4 5]
+
+	// 队列
+
+	var queue []int
+
+	queue = append(queue, 1) // push
+
+	queue = queue[1:] //  类似shift queue[:len(queue) -1 ] // 类似 stack的pop()
+
 }
